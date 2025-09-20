@@ -37,7 +37,12 @@ const CTASection: React.FC = () => {
   return (
     <section id="contato" className="bg-gradient-to-br from-purple-950 to-purple-900 py-24 relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-radial-gradient from-purple-500/20 via-transparent to-transparent opacity-40" />
+        <div 
+          className="absolute inset-0 opacity-40" 
+          style={{
+            background: 'radial-gradient(circle at center, rgba(168, 85, 247, 0.2) 0%, transparent 50%, transparent 100%)'
+          }}
+        />
       </div>
       
       <div className="max-w-3xl mx-auto px-6 lg:px-8 relative z-10">

@@ -32,6 +32,11 @@
   }
 }
 
+/* Creates an animated gradient background effect
+ * The gradient smoothly shifts from left to right and back,
+ * creating a dynamic, flowing visual effect that adds
+ * movement and life to gradient backgrounds
+ */
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
