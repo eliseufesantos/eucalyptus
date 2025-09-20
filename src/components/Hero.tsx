@@ -1,13 +1,17 @@
 import React from 'react';
 import DashboardMockup from './DashboardMockup';
 
+// Grid pattern SVG for background decoration
+// Creates a subtle grid pattern with purple lines for visual depth
+const GRID_PATTERN_SVG = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3Cpattern id='grid' width='10' height='10' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 10 0 L 0 0 0 10' fill='none' stroke='%23c521f4' stroke-width='0.5' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grid)'/%3E%3C/svg%3E`;
+
 const Hero: React.FC = () => {
   return (
     <section className="min-h-screen bg-gradient-to-br from-purple-950 to-purple-900 flex items-center relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3Cpattern id='grid' width='10' height='10' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 10 0 L 0 0 0 10' fill='none' stroke='%23c521f4' stroke-width='0.5' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grid)'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("${GRID_PATTERN_SVG}")`,
           animation: 'float 6s ease-in-out infinite'
         }} />
       </div>
