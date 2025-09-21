@@ -31,51 +31,51 @@ const ProblemSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-primary/5 to-accent/10 py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+    <section className="bg-abyssal py-12 sm:py-16 lg:py-20 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 right-10 w-32 h-32 bg-secondary rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 left-10 w-40 h-40 bg-accent rounded-full blur-3xl"></div>
+        <div className="absolute top-10 right-10 w-24 h-24 bg-electric rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-32 h-32 bg-metallic rounded-full blur-3xl"></div>
       </div>
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Pattern Interruption */}
-        <div className="inline-flex items-center bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-accent/30">
+        <div className="inline-flex items-center bg-electric/20 text-electric px-3 py-1.5 rounded-full text-xs font-semibold mb-4 border border-electric/30">
           ⚠️ O problema não é você... é a forma ultrapassada de fazer marketing
         </div>
         
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4 sm:mb-6 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 tracking-tight">
           Você reconhece essas{' '}
-          <span className="text-secondary">dores</span> na sua clínica?
+          <span className="text-electric">dores</span> na sua clínica?
         </h2>
         
-        <p className="text-lg sm:text-xl text-primary/70 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg text-mist mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
           A maioria das clínicas de harmonização facial perde <strong>milhares de reais</strong> todos os meses 
           por não ter um sistema digital eficiente. Você não está sozinho nessa luta.
         </p>
         
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
           {problems.map((problem, index) => (
             <div 
               key={index} 
-              className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group border border-accent/20"
+              className="bg-abyssal/50 backdrop-blur-sm p-4 sm:p-5 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group border border-electric/20"
             >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary to-accent" />
-              <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 text-2xl group-hover:scale-110 transition-transform duration-300">
+              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-electric to-metallic" />
+              <div className="w-12 h-12 bg-electric/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xl group-hover:scale-110 transition-transform duration-300">
                 {problem.icon}
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4">{problem.title}</h3>
-              <p className="text-sm sm:text-base text-primary/70 leading-relaxed">{problem.description}</p>
+              <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">{problem.title}</h3>
+              <p className="text-xs sm:text-sm text-mist leading-relaxed">{problem.description}</p>
             </div>
           ))}
         </div>
         
         {/* Transição para Oportunidade */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-accent/20">
-          <p className="text-xl font-semibold text-primary mb-4">
+        <div className="bg-metallic/10 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-metallic/20">
+          <p className="text-lg font-semibold text-white mb-3">
             💡 Mas e se sua clínica pudesse funcionar como uma startup de crescimento acelerado?
           </p>
-          <p className="text-primary/70 leading-relaxed">
+          <p className="text-mist text-sm leading-relaxed">
             Grandes empresas já usam <strong>IA + automações</strong> para escalar. 
             Enquanto isso, clínicas ainda fazem marketing manual e perdem oportunidades todos os dias.
           </p>
