@@ -98,9 +98,7 @@ const SolutionSection: React.FC = () => {
               
               <ul className="space-y-2">
                 {item.problems.map((problem, problemIndex) => (
-                  <li key={problemIndex} className={`flex items-start text-sm ${
-                    item.color === 'red' ? 'text-abyssal/70' : 'text-abyssal/70'
-                  }`}>
+                  <li key={problemIndex} className="flex items-start text-sm text-abyssal/70">
                     <span className={`mr-2 font-bold ${
                       item.color === 'red' ? 'text-metallic' : 'text-electric'
                     }`}>
