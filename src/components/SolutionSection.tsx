@@ -8,86 +8,128 @@ interface Feature {
 }
 
 const SolutionSection: React.FC = () => {
-  const features: Feature[] = [
+  const opportunityStats = [
+    { number: '300%', label: 'Aumento médio de consultas' },
+    { number: '80%', label: 'Redução de tarefas manuais' },
+    { number: 'R$ 50k+', label: 'Faturamento adicional mensal' },
+    { number: '24/7', label: 'Agendamentos automáticos' }
+  ];
+
+  const comparisonData = [
     {
-      icon: '🤖',
-      title: 'Automação Inteligente',
-      description: 'Automatize 80% das tarefas repetitivas da sua clínica e foque no que realmente importa: seus pacientes.',
-      benefits: [
-        'Agendamento automático 24/7',
-        'Confirmações e lembretes via WhatsApp',
-        'Formulários de triagem inteligentes'
-      ]
+      title: 'Clínicas Tradicionais',
+      icon: '😰',
+      problems: [
+        'Dependem apenas de indicações',
+        'Marketing manual e ineficiente',
+        'Agenda vazia nos finais de semana',
+        'Sem sistema de fidelização'
+      ],
+      color: 'red'
     },
     {
-      icon: '📱',
-      title: 'Marketing Digital Estratégico',
-      description: 'Campanhas de alta conversão desenvolvidas especificamente para clínicas de harmonização facial.',
-      benefits: [
-        'Anúncios segmentados no Facebook e Instagram',
-        'Landing pages de alta conversão',
-        'Remarketing para pacientes'
-      ]
-    },
-    {
-      icon: '📊',
-      title: 'Gestão Completa',
-      description: 'Dashboard intuitivo com todas as métricas e indicadores que você precisa para tomar decisões estratégicas.',
-      benefits: [
-        'Relatórios em tempo real',
-        'Análise de ROI por campanha',
-        'Métricas de satisfação do paciente'
-      ]
-    },
-    {
+      title: 'Clínicas com Eucalyptus',
       icon: '🚀',
-      title: 'Suporte e Consultoria',
-      description: 'Time especializado em clínicas odontológicas estéticas para garantir seu sucesso digital.',
-      benefits: [
-        'Consultoria estratégica mensal',
-        'Suporte técnico dedicado',
-        'Treinamento para sua equipe'
-      ]
+      problems: [
+        'Agenda sempre lotada com IA',
+        'Marketing automatizado e inteligente',
+        'Crescimento previsível e escalável',
+        'Sistema completo de retenção'
+      ],
+      color: 'green'
     }
   ];
 
   return (
-    <section id="solucao" className="bg-purple-950 py-24 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent animate-pulse" />
+    <section id="solucao" className="bg-gradient-to-br from-accent/10 to-tertiary/20 py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-secondary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent rounded-full blur-3xl"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Conheça o Ecossistema Digital Eucalyptus
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Pattern Interruption */}
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-accent/30">
+            💡 A revolução digital chegou às clínicas de harmonização facial
+          </div>
+          
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4 sm:mb-6 tracking-tight">
+            Enquanto sua concorrência ainda faz{' '}
+            <span className="text-secondary">marketing manual</span>,{' '}
+            <span className="text-accent">você pode escalar</span> com IA
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Sistema completo que integra automação, marketing e gestão para transformar sua clínica em uma máquina de vendas digital
+          
+          <p className="text-lg sm:text-xl text-primary/70 max-w-3xl mx-auto leading-relaxed mb-8">
+            Grandes empresas já usam <strong>inteligência artificial e automação</strong> para crescer exponencialmente. 
+            Agora é a vez das clínicas de harmonização facial entrarem nessa revolução.
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 gap-8">
-          {features.map((feature, index) => (
-            <div 
-              key={index}
-              className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-purple-500/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
-            >
-              <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center mb-6 text-3xl text-white">
-                {feature.icon}
+
+        {/* Estatísticas de Oportunidade */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
+          {opportunityStats.map((stat, index) => (
+            <div key={index} className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300 border border-accent/20">
+              <div className="text-3xl sm:text-4xl font-bold text-secondary mb-2">{stat.number}</div>
+              <div className="text-sm sm:text-base text-primary/70 font-medium">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Comparação Visual */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          {comparisonData.map((item, index) => (
+            <div key={index} className={`bg-white p-8 rounded-2xl shadow-lg border-2 ${
+              item.color === 'red' ? 'border-accent/30' : 'border-secondary/30'
+            }`}>
+              <div className="flex items-center mb-6">
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center text-2xl mr-4 ${
+                  item.color === 'red' ? 'bg-accent/20' : 'bg-secondary/20'
+                }`}>
+                  {item.icon}
+                </div>
+                <h3 className={`text-2xl font-bold ${
+                  item.color === 'red' ? 'text-accent' : 'text-secondary'
+                }`}>
+                  {item.title}
+                </h3>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">{feature.description}</p>
-              <ul className="space-y-2">
-                {feature.benefits.map((benefit, benefitIndex) => (
-                  <li key={benefitIndex} className="text-gray-300 opacity-80 flex items-start">
-                    <span className="text-purple-400 mr-2 font-bold">✓</span>
-                    {benefit}
+              
+              <ul className="space-y-3">
+                {item.problems.map((problem, problemIndex) => (
+                  <li key={problemIndex} className={`flex items-start ${
+                    item.color === 'red' ? 'text-primary/70' : 'text-primary/70'
+                  }`}>
+                    <span className={`mr-3 font-bold ${
+                      item.color === 'red' ? 'text-accent' : 'text-secondary'
+                    }`}>
+                      {item.color === 'red' ? '✗' : '✓'}
+                    </span>
+                    {problem}
                   </li>
                 ))}
               </ul>
             </div>
           ))}
+        </div>
+
+        {/* Call to Action da Oportunidade */}
+        <div className="bg-gradient-to-r from-secondary to-primary rounded-2xl p-8 text-center text-white">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-4">
+            Sua clínica pode ser a próxima a escalar no digital
+          </h3>
+          <p className="text-lg mb-6 opacity-90">
+            Não fique para trás enquanto sua concorrência cresce com tecnologia
+          </p>
+          <a 
+            href="https://wa.me/5511999999999?text=Quero%20transformar%20minha%20clínica%20com%20IA%20e%20automação"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center bg-white text-secondary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            💬 Quero escalar minha clínica agora
+          </a>
         </div>
       </div>
     </section>
