@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
               href="https://wa.me/5511999999999?text=Quero%20conhecer%20o%20método%20Eucalyptus%20para%20minha%20clínica"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-electric to-abyssal hover:from-abyssal hover:to-electric text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg text-sm sm:text-base font-medium hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-r from-electric to-abyssal hover:from-abyssal hover:to-electric text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg text-sm sm:text-base font-medium hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl min-h-11"
             >
               💬 Quero conhecer o método
             </a>
