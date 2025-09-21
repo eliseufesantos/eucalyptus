@@ -94,7 +94,7 @@ const MethodSection: React.FC = () => {
                   <p className="text-xs text-abyssal/70 mb-3">{pillar.description}</p>
                   
                   {index < pillars.length - 1 && (
-                    <div className="hidden lg:block absolute top-10 left-1/2 transform translate-x-8 w-16 h-0.5 bg-gradient-to-r from-secondary to-accent"></div>
+                    <div className="hidden lg:block absolute top-10 left-1/2 transform translate-x-8 w-16 h-0.5 bg-gradient-to-r from-electric to-metallic"></div>
                   )}
                 </div>
               ))}
