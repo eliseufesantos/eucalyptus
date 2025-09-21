@@ -7,10 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Paleta principal
+        'abyssal': '#0c0330',      // Roxo Abissal (Base)
+        'electric': '#c521f4',     // Magenta Elétrico (Destaque)
+        'metallic': '#c0c0c0',     // Prata Metálico (Apoio)
+        'mist': '#dbdfe4',         // Névoa Clara (Texto/Fundo Sec.)
+        
+        // Mantendo compatibilidade
         primary: '#0c0330',
         secondary: '#c521f4',
         tertiary: '#dbdfe4',
-        accent: '#c5d3e2',
+        accent: '#c0c0c0',
         purple: {
           400: '#c521f4',
           500: '#a01dd3',

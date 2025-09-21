@@ -36,63 +36,63 @@ const TrustSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-accent/5 to-white py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+    <section className="bg-mist py-12 sm:py-16 lg:py-20 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 right-10 w-32 h-32 bg-secondary rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-40 h-40 bg-accent rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-10 w-24 h-24 bg-electric rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-32 h-32 bg-metallic rounded-full blur-3xl"></div>
       </div>
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Pattern Interruption */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-accent/30">
+          <div className="inline-flex items-center bg-electric/20 text-electric px-3 py-1.5 rounded-full text-xs font-semibold mb-4 border border-electric/30">
             🏆 Prova Social e Autoridade
           </div>
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4 sm:mb-6 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-abyssal mb-3 sm:mb-4 tracking-tight">
             O que os{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric to-metallic">
               clientes
             </span> estão dizendo
           </h2>
           
-          <p className="text-lg sm:text-xl text-primary/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-abyssal/70 max-w-2xl mx-auto leading-relaxed">
             Resultados reais de clínicas que já transformaram seus negócios com o Eucalyptus
           </p>
         </div>
 
         {/* Estatísticas de Autoridade */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-12">
           {trustStats.map((stat, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-center border border-accent/20">
-              <div className="text-3xl sm:text-4xl font-bold text-secondary mb-2">{stat.number}</div>
-              <div className="text-sm sm:text-base text-primary/70 font-medium">{stat.label}</div>
-              <div className="text-2xl mt-2">{stat.icon}</div>
+            <div key={index} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 text-center border border-metallic/20">
+              <div className="text-2xl sm:text-3xl font-bold text-electric mb-1">{stat.number}</div>
+              <div className="text-xs sm:text-sm text-abyssal/70 font-medium">{stat.label}</div>
+              <div className="text-lg mt-1">{stat.icon}</div>
             </div>
           ))}
         </div>
 
         {/* Depoimentos */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-6 mb-12">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-accent/20">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center text-2xl text-white mr-4">
+            <div key={index} className="bg-white p-5 sm:p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-metallic/20">
+              <div className="flex items-center mb-3">
+                <div className="w-10 h-10 bg-gradient-to-r from-electric to-metallic rounded-full flex items-center justify-center text-xl text-white mr-3">
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <h4 className="font-bold text-primary">{testimonial.name}</h4>
-                  <p className="text-sm text-primary/70">{testimonial.clinic}</p>
-                  <p className="text-xs text-secondary font-semibold">{testimonial.specialty}</p>
+                  <h4 className="font-bold text-abyssal text-sm">{testimonial.name}</h4>
+                  <p className="text-xs text-abyssal/70">{testimonial.clinic}</p>
+                  <p className="text-xs text-electric font-semibold">{testimonial.specialty}</p>
                 </div>
               </div>
               
-              <div className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-semibold inline-block mb-4">
+              <div className="bg-electric/20 text-electric px-2 py-1 rounded-full text-xs font-semibold inline-block mb-3">
                 {testimonial.result}
               </div>
               
-              <p className="text-primary/70 leading-relaxed italic">
+              <p className="text-abyssal/70 text-sm leading-relaxed italic">
                 "{testimonial.testimonial}"
               </p>
             </div>
@@ -101,18 +101,18 @@ const TrustSection: React.FC = () => {
 
         {/* CTA de Prova Social */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-secondary to-primary rounded-2xl p-8 text-white">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4">
+          <div className="bg-gradient-to-r from-electric to-abyssal rounded-xl p-6 text-white">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3">
               Quer ser o próximo a ter esses resultados?
             </h3>
-            <p className="text-lg mb-6 opacity-90">
+            <p className="text-base mb-4 opacity-90">
               Junte-se a centenas de clínicas que já transformaram seus negócios
             </p>
             <a 
               href="https://wa.me/5511999999999?text=Quero%20ser%20o%20próximo%20a%20ter%20esses%20resultados%20com%20o%20Eucalyptus"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-white text-secondary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center bg-white text-electric px-6 py-3 rounded-lg text-base font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               💬 Quero ser o próximo
             </a>
