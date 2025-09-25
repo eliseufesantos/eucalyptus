@@ -4,20 +4,21 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: theme('colors.cream');
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
+  background: theme('colors.taupe');
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: theme('colors.charcoal');
 }
 
 /* Smooth scrolling */
@@ -27,7 +28,47 @@ html {
 
 /* Base typography */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animation delays */
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animation-delay-800 {
+  animation-delay: 800ms;
+}
+
+/* Selection color */
+::selection {
+  background-color: theme('colors.terracotta');
+  color: theme('colors.cream');
+}
+
+/* Focus styles */
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px theme('colors.gold' / 30%);
+}
+
+/* Button transitions */
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
