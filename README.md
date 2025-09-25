@@ -1,6 +1,6 @@
-# Eucalyptus
+# Rebranding em Progresso
 
-Site institucional da Eucalyptus desenvolvido com tecnologias modernas e sustentáveis.
+Este repositório foi reduzido a um esqueleto mínimo para preparar o rebranding e a nova landing page.
 
 ## 🚀 Tecnologias
 
@@ -57,24 +57,19 @@ Para verificar a qualidade do código:
 npm run lint
 ```
 
-## 📱 Recursos
+## 📱 Estado Atual
 
-- ✅ Design responsivo com Tailwind CSS
-- ✅ Componentes React com TypeScript
-- ✅ Menu mobile com hamburger
-- ✅ Otimizado para produção
-- ✅ Hot Module Replacement (HMR)
-- ✅ Linting automático
+- **Skeleton** com Vite + React + TypeScript + Tailwind
+- Página única com placeholder "Novo site em breve"
 
 ## 🎨 Estrutura do projeto
 
 ```
-eucalyptus/
+project/
 ├── public/
 ├── src/
-│   ├── assets/
-│   ├── App.tsx       # Componente principal
-│   ├── index.css     # Estilos globais com Tailwind
+│   ├── App.tsx       # Componente principal (placeholder)
+│   ├── index.css     # Estilos globais mínimos com Tailwind
 │   ├── main.tsx      # Ponto de entrada
 │   └── vite-env.d.ts
 ├── index.html
@@ -84,13 +79,10 @@ eucalyptus/
 └── vite.config.ts
 ```
 
-## 🤝 Contribuindo
+## 🤝 Próximos Passos
 
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
+- Definir identidade visual e tokens de design
+- Implementar nova landing page
 
 ## 📄 Licença
 
