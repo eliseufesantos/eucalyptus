@@ -1,26 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Hero from './components/Hero';
+import PainSection from './components/PainSection';
+import Solution from './components/Solution';
+import Benefits from './components/Benefits';
+import Authority from './components/Authority';
+import CTA from './components/CTA';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import DiagnosticForm from './components/DiagnosticForm';
 
 const App: React.FC = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="p-6">
-        <h1 className="text-2xl font-bold text-gray-900">Meu Projeto</h1>
-      </header>
-      
-      <main className="container mx-auto px-6 py-12">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Bem-vindo
-          </h2>
-          <p className="text-lg text-gray-600">
-            Esta é a estrutura básica para o seu novo projeto.
-          </p>
-        </div>
-      </main>
-      
-      <footer className="mt-auto p-6 text-center text-gray-600">
-        <p>&copy; 2024 Todos os direitos reservados.</p>
-      </footer>
+    <div className="min-h-screen bg-cream">
+      <Header onOpenForm={() => setIsFormOpen(true)} />
+      <Hero onOpenForm={() => setIsFormOpen(true)} />
+      <PainSection />
+      <Solution />
+      <Benefits />
+      <Authority />
+      <CTA onOpenForm={() => setIsFormOpen(true)} />
+      <Footer />
+      <DiagnosticForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
     </div>
   );
 };
