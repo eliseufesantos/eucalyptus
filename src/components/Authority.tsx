@@ -36,10 +36,19 @@ const Authority: React.FC = () => {
               <p className="text-2xl font-semibold text-gold mb-4">
                 Entregamos domínio inteligente:
               </p>
-              <p className="text-lg text-cream/90 leading-relaxed">
+              <p className="text-lg text-cream/90 leading-relaxed mb-6">
                 a sensação de estar no controle de tudo, com processos 
                 que funcionam mesmo quando você não está olhando.
               </p>
+              
+              <div className="border-t border-gold/30 pt-6">
+                <p className="text-lg text-cream/90 leading-relaxed mb-4">
+                  E neste início, estamos selecionando clínicas visionárias para fazer parte da nossa vitrine de resultados.
+                </p>
+                <p className="text-lg text-gold font-semibold">
+                  Os primeiros clientes que aceitarem gravar um depoimento em vídeo terão condições especiais de setup e destaque nos nossos canais.
+                </p>
+              </div>
             </div>
           </div>
 

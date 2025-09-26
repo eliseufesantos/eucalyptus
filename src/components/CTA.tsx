@@ -19,6 +19,21 @@ const CTA: React.FC<CTAProps> = ({ onOpenForm }) => {
             </p>
           </div>
 
+          {/* Special Bonus Section */}
+          <div className="bg-gradient-to-r from-terracotta/10 to-gold/20 rounded-2xl p-8 lg:p-10 mb-12 animate-fadeInUp animation-delay-300">
+            <div className="text-center space-y-4">
+              <h3 className="text-2xl font-bold text-charcoal">
+                BÔNUS ESPECIAL PARA AS PRIMEIRAS CLÍNICAS
+              </h3>
+              <p className="text-lg text-taupe">
+                Aceitando gravar um vídeo depoimento, você garante condições exclusivas de entrada e presença na nossa vitrine de cases.
+              </p>
+              <p className="text-lg text-terracotta font-semibold">
+                Cresça com estrutura — e inspire outras clínicas a fazer o mesmo.
+              </p>
+            </div>
+          </div>
+
           {/* CTA Content */}
           <div className="space-y-8 animate-fadeInUp animation-delay-400">
             <p className="text-xl text-taupe leading-relaxed">
@@ -42,8 +57,19 @@ const CTA: React.FC<CTAProps> = ({ onOpenForm }) => {
             </p>
           </div>
 
+          {/* AI Handshake Image */}
+          <div className="relative mt-16 animate-fadeInUp animation-delay-700">
+            <div className="max-w-2xl mx-auto mb-8">
+              <img 
+                src="/assets/fundo-humano-aperto-de-mao-robo-era-digital-futurista.jpg" 
+                alt="Colaboração entre humano e inteligência artificial - parceria tecnológica"
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
+            </div>
+          </div>
+
           {/* Visual Element */}
-          <div className="relative mt-16 animate-fadeInUp animation-delay-800">
+          <div className="relative mt-8 animate-fadeInUp animation-delay-800">
             <div className="absolute inset-0 bg-gradient-to-r from-terracotta/20 to-gold/20 blur-3xl" />
             <div className="relative bg-charcoal text-cream rounded-2xl p-8 lg:p-10">
               <p className="text-2xl font-bold mb-2">Eucalyptus</p>

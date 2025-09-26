@@ -10,18 +10,22 @@ const Header: React.FC<HeaderProps> = ({ onOpenForm }) => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-cream/80 backdrop-blur-lg border-b border-charcoal/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        <nav className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo placeholder */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-terracotta to-gold rounded-full animate-fadeIn" />
-            <span className="text-lg sm:text-xl font-medium text-charcoal animate-fadeIn">Eucalyptus</span>
+        <nav className="flex items-center justify-between h-20 lg:h-24">
+          {/* Logo */}
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/assets/eucalyptus-logo-padrao.svg" 
+              alt="Eucalyptus Logo" 
+              className="h-16 sm:h-20 lg:h-24 w-auto animate-fadeIn"
+            />
+            <span className="text-xl sm:text-2xl lg:text-2xl font-medium text-charcoal animate-fadeIn">EUCALYPTUS</span>
           </div>
           
           {/* Navigation - Hidden on mobile */}
-          <ul className="hidden lg:flex items-center space-x-8 text-sm">
-            <li><a href="#solution" className="text-charcoal hover:text-terracotta transition-colors">Solução</a></li>
-            <li><a href="#benefits" className="text-charcoal hover:text-terracotta transition-colors">Benefícios</a></li>
-            <li><a href="#about" className="text-charcoal hover:text-terracotta transition-colors">Sobre</a></li>
+          <ul className="hidden lg:flex items-center space-x-10 text-lg">
+            <li><a href="#solution" className="text-charcoal hover:text-terracotta transition-colors font-medium">Solução</a></li>
+            <li><a href="#benefits" className="text-charcoal hover:text-terracotta transition-colors font-medium">Benefícios</a></li>
+            <li><a href="#about" className="text-charcoal hover:text-terracotta transition-colors font-medium">Sobre</a></li>
           </ul>
           
           {/* Mobile Menu Button */}
@@ -37,25 +41,25 @@ const Header: React.FC<HeaderProps> = ({ onOpenForm }) => {
           {/* CTA Button - Desktop */}
           <button 
             onClick={onOpenForm}
-            className="hidden lg:block bg-terracotta text-cream px-6 py-2.5 rounded-full text-sm font-medium hover:bg-terracotta/90 transition-all transform hover:scale-105 animate-fadeIn">
+            className="hidden lg:block bg-terracotta text-cream px-8 py-3 rounded-full text-lg font-medium hover:bg-terracotta/90 transition-all transform hover:scale-105 animate-fadeIn">
             Diagnóstico Gratuito
           </button>
         </nav>
         
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-16 left-0 right-0 bg-cream/95 backdrop-blur-lg border-b border-charcoal/10 animate-fadeInDown">
-            <ul className="flex flex-col space-y-4 p-6">
-              <li><a href="#solution" onClick={() => setIsMenuOpen(false)} className="text-charcoal hover:text-terracotta transition-colors">Solução</a></li>
-              <li><a href="#benefits" onClick={() => setIsMenuOpen(false)} className="text-charcoal hover:text-terracotta transition-colors">Benefícios</a></li>
-              <li><a href="#about" onClick={() => setIsMenuOpen(false)} className="text-charcoal hover:text-terracotta transition-colors">Sobre</a></li>
+          <div className="lg:hidden absolute top-20 left-0 right-0 bg-cream/95 backdrop-blur-lg border-b border-charcoal/10 animate-fadeInDown">
+            <ul className="flex flex-col space-y-6 p-8">
+              <li><a href="#solution" onClick={() => setIsMenuOpen(false)} className="text-charcoal hover:text-terracotta transition-colors text-lg font-medium">Solução</a></li>
+              <li><a href="#benefits" onClick={() => setIsMenuOpen(false)} className="text-charcoal hover:text-terracotta transition-colors text-lg font-medium">Benefícios</a></li>
+              <li><a href="#about" onClick={() => setIsMenuOpen(false)} className="text-charcoal hover:text-terracotta transition-colors text-lg font-medium">Sobre</a></li>
               <li>
                 <button 
                   onClick={() => {
                     onOpenForm();
                     setIsMenuOpen(false);
                   }}
-                  className="w-full bg-terracotta text-cream px-6 py-2.5 rounded-full text-sm font-medium hover:bg-terracotta/90 transition-all">
+                  className="w-full bg-terracotta text-cream px-8 py-4 rounded-full text-lg font-medium hover:bg-terracotta/90 transition-all">
                   Diagnóstico Gratuito
                 </button>
               </li>
