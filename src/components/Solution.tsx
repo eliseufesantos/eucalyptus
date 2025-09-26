@@ -78,13 +78,13 @@ const Solution: React.FC = () => {
                 
                 {/* Text Content with Premium Typography */}
                 <div className="text-center space-y-8 mb-12 relative z-10">
-                  <h3 className="text-premium-large text-charcoal">
+                  <h3 className="text-4xl sm:text-5xl lg:text-premium-large text-charcoal font-black">
                     A Solução
                   </h3>
-                  <p className="text-premium-subtitle text-gold font-semibold">
+                  <p className="text-2xl sm:text-3xl lg:text-premium-subtitle text-terracotta font-semibold">
                     Um ecossistema digital inteligente.
                   </p>
-                  <p className="text-xl lg:text-2xl text-charcoal/80 leading-relaxed max-w-4xl mx-auto text-premium">
+                  <p className="text-lg sm:text-xl lg:text-2xl text-charcoal/80 leading-relaxed max-w-4xl mx-auto text-premium">
                     Transformamos sua rotina com automações inteligentes, processos simples e tecnologia que respeita seu tempo e seu jeito.
                   </p>
                 </div>
@@ -95,7 +95,7 @@ const Solution: React.FC = () => {
                     <img
                       src="/assets/bela-jovem-posando-sobre-parede-cinza-e-segurando-o-tablet-nas-maos.jpg"
                       alt="Profissional utilizando tecnologia digital para gestão eficiente"
-                      className="w-[400px] max-w-3xl mx-auto h-80 lg:h-[280px] rounded-2xl shadow-premium transition-all duration-300"
+                      className="w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[400px] mx-auto h-64 sm:h-72 md:h-80 lg:h-[280px] rounded-2xl shadow-premium transition-all duration-300"
                     />
                     {/* Warm Golden Glow Effect - Only on Hover */}
                     <div 
@@ -113,7 +113,7 @@ const Solution: React.FC = () => {
                 <div className="text-center mt-6">
                   <div className="inline-block">
                     <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 shadow-lg">
-                      <p className="text-charcoal/90 text-sm font-medium flex items-center gap-2">
+                      <p className="text-charcoal/90 text-sm sm:text-base font-medium flex items-center gap-2">
                         <span className="text-red-500 text-lg">⚠️</span>
                         A Eucalyptus não é uma agência de marketing.
                       </p>
@@ -126,31 +126,48 @@ const Solution: React.FC = () => {
 
           {/* Swiper Carousel with Multiple Cards */}
           <div className="space-y-6">
-            <h3 className="text-premium-subtitle text-cream text-center mb-12 animate-fadeInUp animation-delay-400 font-semibold drop-shadow-lg">
+            <h3 className="text-2xl sm:text-3xl lg:text-premium-subtitle text-cream text-center mb-12 animate-fadeInUp animation-delay-400 font-semibold drop-shadow-lg">
               O que entregamos:
             </h3>
 
             <div className="swiper-container">
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
-                spaceBetween={30}
+                spaceBetween={20}
                 slidesPerView={1}
+                centeredSlides={false}
+                slidesPerGroup={1}
+                initialSlide={1}
                 breakpoints={{
+                  480: {
+                    slidesPerView: 1,
+                    spaceBetween: 15,
+                    centeredSlides: true,
+                    slidesPerGroup: 1,
+                  },
                   640: {
                     slidesPerView: 1,
                     spaceBetween: 20,
+                    centeredSlides: false,
+                    slidesPerGroup: 1,
                   },
                   768: {
                     slidesPerView: 2,
-                    spaceBetween: 30,
+                    spaceBetween: 25,
+                    centeredSlides: false,
+                    slidesPerGroup: 1,
                   },
                   1024: {
                     slidesPerView: 3,
-                    spaceBetween: 40,
+                    spaceBetween: 30,
+                    centeredSlides: false,
+                    slidesPerGroup: 1,
                   },
                   1280: {
                     slidesPerView: 3,
-                    spaceBetween: 50,
+                    spaceBetween: 40,
+                    centeredSlides: false,
+                    slidesPerGroup: 1,
                   },
                 }}
                 navigation={{

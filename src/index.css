@@ -457,7 +457,7 @@ button {
 /* Fat Square Card Styles - Almost Square */
 .fat-square-card {
   width: 100%;
-  height: 460px; /* Increased to accommodate notification */
+  height: 460px; /* Original desktop size */
   aspect-ratio: 1.1; /* Slightly wider than tall */
   display: flex;
   flex-direction: column;
@@ -467,17 +467,49 @@ button {
   position: relative;
 }
 
+/* Mobile Responsive Card Adjustments */
+@media (max-width: 640px) {
+  .fat-square-card {
+    height: 380px; /* Increased to accommodate text */
+    padding: 0.75rem;
+    aspect-ratio: 1.1; /* Slightly wider */
+    max-width: 280px; /* Limit max width */
+    margin: 0 auto; /* Center the card */
+  }
+}
+
 /* Card Text Legibility */
 .fat-square-card h4 {
   color: #1f2937 !important; /* gray-800 */
   font-weight: 700 !important;
   letter-spacing: -0.01em;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  text-align: center;
+  margin-bottom: 0.75rem;
 }
 
 .fat-square-card p {
   color: #374151 !important; /* gray-700 */
   font-weight: 500 !important;
   letter-spacing: -0.005em;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+}
+
+/* Mobile Card Text Adjustments */
+@media (max-width: 640px) {
+  .fat-square-card h4 {
+    font-size: 1.1rem !important; /* Slightly smaller for mobile */
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .fat-square-card p {
+    font-size: 0.9rem !important; /* Slightly smaller for mobile */
+    line-height: 1.4 !important;
+  }
 }
 
 /* Enhanced text on hover - No glow, just subtle changes */
@@ -524,6 +556,13 @@ button {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* Mobile Swiper Container Adjustments */
+@media (max-width: 640px) {
+  .swiper-container {
+    padding: 0 20px;
+  }
 }
 
 .mySwiper {
@@ -655,5 +694,18 @@ button {
 @media (max-width: 768px) {
   .swiper-container {
     padding: 0 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .swiper-container {
+    padding: 0 40px;
+  }
+  
+  .swiper-button-prev-custom,
+  .swiper-button-next-custom {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
   }
 }
