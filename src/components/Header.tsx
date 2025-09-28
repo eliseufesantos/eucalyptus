@@ -1,10 +1,7 @@
 import React from 'react';
+import { redirectToExternalForm } from '../utils/externalForm';
 
-interface HeaderProps {
-  onOpenForm: () => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ onOpenForm }) => {
+const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
@@ -23,9 +20,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenForm }) => {
           
           {/* Navigation - Hidden on mobile */}
           <ul className="hidden lg:flex items-center space-x-10 text-lg">
-            <li><a href="#solution" className="text-charcoal hover:text-terracotta transition-colors font-medium">Solução</a></li>
-            <li><a href="#benefits" className="text-charcoal hover:text-terracotta transition-colors font-medium">Benefícios</a></li>
-            <li><a href="#about" className="text-charcoal hover:text-terracotta transition-colors font-medium">Sobre</a></li>
+            <li><a href="#solution" className="text-charcoal font-medium">Solução</a></li>
+            <li><a href="#benefits" className="text-charcoal font-medium">Benefícios</a></li>
+            <li><a href="#about" className="text-charcoal font-medium">Sobre</a></li>
           </ul>
           
           {/* Mobile Menu Button */}
@@ -40,8 +37,8 @@ const Header: React.FC<HeaderProps> = ({ onOpenForm }) => {
           
           {/* CTA Button - Desktop */}
           <button 
-            onClick={onOpenForm}
-            className="hidden lg:block bg-terracotta text-cream px-8 py-3 rounded-full text-lg font-medium hover:bg-terracotta/90 transition-all transform hover:scale-105 animate-fadeIn">
+            onClick={redirectToExternalForm}
+            className="hidden lg:block bg-terracotta text-cream px-8 py-3 rounded-full text-lg font-medium animate-fadeIn">
             Diagnóstico Gratuito
           </button>
         </nav>
@@ -50,16 +47,16 @@ const Header: React.FC<HeaderProps> = ({ onOpenForm }) => {
         {isMenuOpen && (
           <div className="lg:hidden absolute top-20 left-0 right-0 bg-cream/95 backdrop-blur-lg border-b border-charcoal/10 animate-fadeInDown">
             <ul className="flex flex-col space-y-6 p-8">
-              <li><a href="#solution" onClick={() => setIsMenuOpen(false)} className="text-charcoal hover:text-terracotta transition-colors text-lg font-medium">Solução</a></li>
-              <li><a href="#benefits" onClick={() => setIsMenuOpen(false)} className="text-charcoal hover:text-terracotta transition-colors text-lg font-medium">Benefícios</a></li>
-              <li><a href="#about" onClick={() => setIsMenuOpen(false)} className="text-charcoal hover:text-terracotta transition-colors text-lg font-medium">Sobre</a></li>
+              <li><a href="#solution" onClick={() => setIsMenuOpen(false)} className="text-charcoal text-lg font-medium">Solução</a></li>
+              <li><a href="#benefits" onClick={() => setIsMenuOpen(false)} className="text-charcoal text-lg font-medium">Benefícios</a></li>
+              <li><a href="#about" onClick={() => setIsMenuOpen(false)} className="text-charcoal text-lg font-medium">Sobre</a></li>
               <li>
                 <button 
                   onClick={() => {
-                    onOpenForm();
+                    redirectToExternalForm();
                     setIsMenuOpen(false);
                   }}
-                  className="w-full bg-terracotta text-cream px-8 py-4 rounded-full text-lg font-medium hover:bg-terracotta/90 transition-all">
+                  className="w-full bg-terracotta text-cream px-8 py-4 rounded-full text-lg font-medium">
                   Diagnóstico Gratuito
                 </button>
               </li>

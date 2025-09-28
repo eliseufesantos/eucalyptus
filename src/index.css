@@ -470,10 +470,10 @@ button {
 /* Mobile Responsive Card Adjustments */
 @media (max-width: 640px) {
   .fat-square-card {
-    height: 380px; /* Increased to accommodate text */
-    padding: 0.75rem;
+    height: 400px; /* Good size for mobile */
+    padding: 1rem;
     aspect-ratio: 1.1; /* Slightly wider */
-    max-width: 280px; /* Limit max width */
+    max-width: 280px; /* Good size for mobile */
     margin: 0 auto; /* Center the card */
   }
 }
@@ -502,13 +502,14 @@ button {
 /* Mobile Card Text Adjustments */
 @media (max-width: 640px) {
   .fat-square-card h4 {
-    font-size: 1.1rem !important; /* Slightly smaller for mobile */
-    margin-bottom: 0.5rem !important;
+    font-size: 1.2rem !important; /* Slightly smaller for mobile */
+    margin-bottom: 0.75rem !important;
+    line-height: 1.3 !important;
   }
   
   .fat-square-card p {
-    font-size: 0.9rem !important; /* Slightly smaller for mobile */
-    line-height: 1.4 !important;
+    font-size: 0.95rem !important; /* Slightly smaller for mobile */
+    line-height: 1.5 !important;
   }
 }
 
@@ -552,7 +553,7 @@ button {
 /* Swiper Custom Styles */
 .swiper-container {
   position: relative;
-  padding: 0 80px;
+  padding: 0 60px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -563,6 +564,12 @@ button {
   .swiper-container {
     padding: 0 20px;
   }
+  
+  .swiper-button-prev-custom,
+  .swiper-button-next-custom {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .mySwiper {
@@ -572,14 +579,13 @@ button {
   padding: 20px 0;
 }
 
-/* Custom Navigation Buttons */
+/* Custom Navigation Buttons - Original Colors */
 .swiper-button-prev-custom,
 .swiper-button-next-custom {
   position: absolute;
-  top: 50%;
   transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(229, 207, 176, 0.6);
@@ -605,30 +611,15 @@ button {
 
 .swiper-button-prev-custom {
   left: 0;
+  top: 60%;
 }
 
 .swiper-button-next-custom {
   right: 0;
+  top: 60%;
 }
 
-.swiper-button-prev-custom::after {
-  content: "←";
-  font-size: 24px;
-  font-weight: bold;
-  color: rgba(229, 207, 176, 0.9);
-}
-
-.swiper-button-next-custom::after {
-  content: "→";
-  font-size: 24px;
-  font-weight: bold;
-  color: rgba(229, 207, 176, 0.9);
-}
-
-.swiper-button-prev-custom:hover::after,
-.swiper-button-next-custom:hover::after {
-  color: rgba(229, 207, 176, 1);
-}
+/* Removed pseudo-element arrows - using Lucide icons instead */
 
 /* Custom Pagination */
 .swiper-pagination-custom {
@@ -699,13 +690,95 @@ button {
 
 @media (max-width: 640px) {
   .swiper-container {
-    padding: 0 40px;
+    padding: 0 10px;
+    width: 100%;
+    margin: 0 auto;
   }
   
   .swiper-button-prev-custom,
   .swiper-button-next-custom {
-    width: 40px;
-    height: 40px;
-    font-size: 14px;
+    display: none !important;
+  }
+}
+
+/* Line clamp utilities for text overflow control */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Mobile card text overflow prevention */
+@media (max-width: 640px) {
+  .fat-square-card {
+    height: 400px !important;
+    max-width: 280px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+  
+  .fat-square-card h4 {
+    font-size: 1.1rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.75rem !important;
+    max-height: 3rem !important;
+    overflow: hidden !important;
+  }
+  
+  .fat-square-card p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    max-height: 4rem !important;
+    overflow: hidden !important;
+  }
+}
+
+/* Mobile Swiper - Normal behavior with mobile adaptation */
+@media (max-width: 767px) {
+  .mySwiper {
+    overflow: visible !important;
+  }
+  
+  .mySwiper .swiper-wrapper {
+    align-items: stretch !important;
+  }
+  
+  .mySwiper .swiper-slide {
+    height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Hide navigation buttons on mobile */
+  .swiper-button-prev-custom,
+  .swiper-button-next-custom {
+    display: none !important;
+  }
+  
+  /* Center pagination */
+  .swiper-pagination-custom {
+    margin-top: 1.5rem !important;
+  }
+  
+  /* Swiper container adjustments for mobile */
+  .swiper-container {
+    padding: 0 20px !important;
+    max-width: 100% !important;
   }
 }

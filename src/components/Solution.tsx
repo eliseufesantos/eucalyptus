@@ -1,38 +1,59 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { ProjectIcons } from '../utils/icons';
 
 const Solution: React.FC = () => {
+  // Framer Motion variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6
+      }
+    }
+  };
+
   const deliverables = [
     {
       title: 'CRM Kommo personalizado',
       description: 'para o seu fluxo específico',
       image: '/assets/kommo-crm.png',
+      icon: ProjectIcons.SolutionDatabase,
     },
     {
       title: 'Automação inteligente',
       description: 'de follow-ups e agendamentos, sem esforço manual',
       image: '/assets/n8n-atuomaco.webp',
+      icon: ProjectIcons.SolutionZap,
     },
     {
       title: 'Landing pages que convertem',
       description: 'e formulários inteligentes que já filtram os leads certos',
       image: '/assets/landing-page-pc.jpg',
+      icon: ProjectIcons.SolutionMonitor,
     },
     {
       title: 'Consultoria estratégica premium',
       description: 'imagem, marketing e presença digital — exclusiva para quem busca diferenciação de alto padrão',
       image: '/assets/camera-profissional-em-um-desfocado.jpg',
+      icon: ProjectIcons.SolutionCamera,
     },
   ];
 
   return (
-    <section 
+    <motion.section 
       id="solution" 
-      className="py-24 lg:py-32 relative overflow-hidden"
+      className="pt-24 pb-8 lg:pt-32 lg:pb-12 relative overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #f5f3f0 0%, #f0ede8 20%, #e8dcc6 40%, #d4c4a8 60%, #8b7d6b 75%, #5a5a5a 90%, #2c2c2c 100%)'
       }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants}
     >
       {/* Animated Background Gradient - Light to Dark starting from title */}
       <div 
@@ -46,8 +67,25 @@ const Solution: React.FC = () => {
         <div className="max-w-6xl mx-auto">
 
           {/* macOS-style Card with Glassmorphism - Light Version */}
-          <div className="mb-20 animate-fadeInUp animation-delay-300">
-            <div className="max-w-4xl mx-auto glass-card-light rounded-3xl glow-warm overflow-hidden glow-warm-hover">
+            <motion.div 
+              className="mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ 
+                duration: window.innerWidth < 768 ? 0.4 : 0.8 
+              }}
+            >
+            <motion.div 
+              className="max-w-4xl mx-auto glass-card-light rounded-3xl glow-warm overflow-hidden glow-warm-hover"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ 
+                duration: window.innerWidth < 768 ? 0.4 : 0.8 
+              }}
+              whileHover={{ scale: 1.01 }}
+            >
               {/* macOS Title Bar with Light Glass Effect */}
               <div className="macos-glass-tab px-6 py-4 flex items-center space-x-3">
                 {/* Traffic Light Buttons - Enhanced */}
@@ -63,7 +101,7 @@ const Solution: React.FC = () => {
 
               {/* Web Page Content with Light Glass Effect */}
               <div 
-                className="glass-card-light p-8 lg:p-12 min-h-[500px] relative"
+                className="glass-card-light p-6 sm:p-6 lg:p-8 min-h-[420px] sm:min-h-[380px] lg:min-h-[420px] relative"
                 style={{
                   background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(245, 243, 240, 0.3) 50%, rgba(255, 255, 255, 0.2) 100%)'
                 }}
@@ -77,58 +115,109 @@ const Solution: React.FC = () => {
                 ></div>
                 
                 {/* Text Content with Premium Typography */}
-                <div className="text-center space-y-8 mb-12 relative z-10">
-                  <h3 className="text-4xl sm:text-5xl lg:text-premium-large text-charcoal font-black">
+                <motion.div 
+                  className="text-center space-y-3 sm:space-y-4 lg:space-y-6 mb-4 sm:mb-6 lg:mb-8 relative z-10"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ 
+                    duration: window.innerWidth < 768 ? 0.4 : 0.8 
+                  }}
+                >
+                  <h3 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-charcoal font-bold">
                     A Solução
                   </h3>
-                  <p className="text-2xl sm:text-3xl lg:text-premium-subtitle text-terracotta font-semibold">
+                  <p className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-terracotta font-medium">
                     Um ecossistema digital inteligente.
                   </p>
-                  <p className="text-lg sm:text-xl lg:text-2xl text-charcoal/80 leading-relaxed max-w-4xl mx-auto text-premium">
+                  <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-charcoal/80 leading-relaxed max-w-4xl mx-auto font-light px-2">
                     Transformamos sua rotina com automações inteligentes, processos simples e tecnologia que respeita seu tempo e seu jeito.
                   </p>
-                </div>
+                </motion.div>
 
                 {/* Image Section with Enhanced Effects */}
-                <div className="text-center relative z-10">
-                  <div className="relative inline-block group">
+                <motion.div 
+                  className="text-center relative z-10"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    duration: window.innerWidth < 768 ? 0.4 : 0.8 
+                  }}
+                >
+                  <motion.div 
+                    className="relative inline-block group"
+                    whileHover={{ scale: 1.05 }}
+                  >
                     <img
-                      src="/assets/bela-jovem-posando-sobre-parede-cinza-e-segurando-o-tablet-nas-maos.jpg"
+                      src="/assets/elegante-jovem-moderna-segurando-o-celular.jpg"
                       alt="Profissional utilizando tecnologia digital para gestão eficiente"
-                      className="w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[400px] mx-auto h-64 sm:h-72 md:h-80 lg:h-[280px] rounded-2xl shadow-premium transition-all duration-300"
+                      className="w-full max-w-[240px] sm:max-w-[250px] md:max-w-[280px] lg:max-w-[320px] mx-auto h-44 sm:h-40 md:h-44 lg:h-48 rounded-2xl shadow-premium object-cover object-center"
                     />
                     {/* Warm Golden Glow Effect - Only on Hover */}
-                    <div 
-                      className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-40 transition-all duration-500"
+                    <motion.div 
+                      className="absolute inset-0 rounded-2xl"
                       style={{
                         background: 'linear-gradient(45deg, rgba(229, 207, 176, 0.4), rgba(245, 220, 180, 0.3), rgba(212, 196, 168, 0.4))',
                         filter: 'blur(20px)',
-                        transform: 'scale(1.05)'
                       }}
-                    ></div>
-                  </div>
-                </div>
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 0.4 }}
+                    ></motion.div>
+                  </motion.div>
+                </motion.div>
                 
                 {/* Small Notification - Below Image */}
-                <div className="text-center mt-6">
-                  <div className="inline-block">
-                    <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 shadow-lg">
-                      <p className="text-charcoal/90 text-sm sm:text-base font-medium flex items-center gap-2">
-                        <span className="text-red-500 text-lg">⚠️</span>
+                <motion.div 
+                  className="text-center mt-6"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    duration: window.innerWidth < 768 ? 0.4 : 0.8 
+                  }}
+                >
+                  <motion.div 
+                    className="inline-block"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-3 py-1.5 shadow-lg">
+                      <p className="text-charcoal/90 text-xs sm:text-sm font-normal flex items-center gap-2">
+                        <ProjectIcons.Alert />
                         A Eucalyptus não é uma agência de marketing.
                       </p>
                     </div>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Swiper Carousel with Multiple Cards */}
-          <div className="space-y-6">
-            <h3 className="text-2xl sm:text-3xl lg:text-premium-subtitle text-cream text-center mb-12 animate-fadeInUp animation-delay-400 font-semibold drop-shadow-lg">
+            <motion.div 
+              className="space-y-6 mt-32"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ 
+                duration: window.innerWidth < 768 ? 0.4 : 0.8 
+              }}
+            >
+            <motion.h3 
+              className="text-2xl sm:text-3xl lg:text-4xl text-center mb-12 font-semibold text-charcoal relative"
+              style={{
+                textShadow: '0 0 20px rgba(237, 208, 140, 0.6), 0 2px 4px rgba(0, 0, 0, 0.3)',
+                filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))'
+              }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: window.innerWidth < 768 ? 0.4 : 0.8 
+              }}
+            >
               O que entregamos:
-            </h3>
+            </motion.h3>
 
             <div className="swiper-container">
               <Swiper
@@ -137,35 +226,35 @@ const Solution: React.FC = () => {
                 slidesPerView={1}
                 centeredSlides={false}
                 slidesPerGroup={1}
-                initialSlide={1}
+                initialSlide={0}
                 breakpoints={{
-                  480: {
-                    slidesPerView: 1,
+                  0: {
+                    slidesPerView: 1.2,
                     spaceBetween: 15,
-                    centeredSlides: true,
+                    centeredSlides: false,
                     slidesPerGroup: 1,
                   },
                   640: {
-                    slidesPerView: 1,
+                    slidesPerView: 1.5,
                     spaceBetween: 20,
                     centeredSlides: false,
                     slidesPerGroup: 1,
                   },
                   768: {
                     slidesPerView: 2,
-                    spaceBetween: 25,
+                    spaceBetween: 20,
                     centeredSlides: false,
                     slidesPerGroup: 1,
                   },
                   1024: {
                     slidesPerView: 3,
-                    spaceBetween: 30,
+                    spaceBetween: 25,
                     centeredSlides: false,
                     slidesPerGroup: 1,
                   },
                   1280: {
                     slidesPerView: 3,
-                    spaceBetween: 40,
+                    spaceBetween: 30,
                     centeredSlides: false,
                     slidesPerGroup: 1,
                   },
@@ -191,7 +280,9 @@ const Solution: React.FC = () => {
               >
                 {deliverables.map((item, index) => (
                   <SwiperSlide key={index}>
-                    <div className="group relative glass-card rounded-3xl shadow-premium-hover fat-square-card w-full h-[460px] animate-float-subtle">
+                    <div 
+                      className="group relative glass-card rounded-3xl shadow-premium fat-square-card w-full h-[380px] sm:h-[420px] lg:h-[450px]"
+                    >
                       {/* Animated Background Gradient with Warm Colors */}
                       <div 
                         className="absolute inset-0 animate-gradient-wave opacity-15 rounded-3xl"
@@ -200,10 +291,10 @@ const Solution: React.FC = () => {
                         }}
                       ></div>
                       
-                      <div className="relative z-10 flex flex-col justify-between h-full p-6">
+                      <div className="relative z-10 flex flex-col justify-between h-full p-3 sm:p-4 lg:p-6">
                         {/* Image Area */}
-                        <div className="relative mb-4 flex-shrink-0">
-                          <div className="w-full h-40 rounded-2xl overflow-hidden shadow-lg bg-white/20 backdrop-blur-sm">
+                        <div className="relative mb-3 sm:mb-4 lg:mb-5 flex-shrink-0">
+                          <div className="w-full h-36 sm:h-40 lg:h-44 rounded-2xl overflow-hidden shadow-xl bg-white/20 backdrop-blur-sm">
                             <img
                               src={item.image}
                               alt={item.title}
@@ -211,19 +302,24 @@ const Solution: React.FC = () => {
                             />
                           </div>
                           <div 
-                            className="absolute inset-0 rounded-2xl animate-pulse-glow opacity-30"
+                            className="absolute inset-0 rounded-2xl animate-pulse-glow opacity-40"
                             style={{
-                              background: 'radial-gradient(circle, rgba(229, 207, 176, 0.4) 0%, transparent 70%)'
+                              background: 'radial-gradient(circle, rgba(229, 207, 176, 0.5) 0%, transparent 70%)'
                             }}
                           ></div>
                         </div>
                         
                         {/* Content Area */}
-                        <div className="text-center flex-1 flex flex-col justify-center">
-                          <h4 className="text-premium text-gray-800 mb-3 text-lg lg:text-xl font-bold leading-tight drop-shadow-sm">
+                        <div className="text-center flex-1 flex flex-col justify-center min-h-0">
+                          <div className="flex justify-center mb-2 sm:mb-3">
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-terracotta to-gold rounded-full flex items-center justify-center shadow-lg">
+                              <item.icon />
+                            </div>
+                          </div>
+                          <h4 className="text-gray-800 mb-2 sm:mb-3 text-sm sm:text-base lg:text-lg xl:text-xl font-semibold leading-tight drop-shadow-sm line-clamp-2">
                             {item.title}
                           </h4>
-                          <p className="text-gray-700 text-sm lg:text-base leading-relaxed font-medium">
+                          <p className="text-gray-700 text-xs sm:text-sm lg:text-base leading-tight font-normal px-1 line-clamp-3 overflow-hidden">
                             {item.description}
                           </p>
                         </div>
@@ -231,7 +327,7 @@ const Solution: React.FC = () => {
 
                       {/* Enhanced Warm Hover Effect */}
                       <div 
-                        className="absolute inset-0 animate-gradient-flow opacity-0 group-hover:opacity-25 transition-all duration-500 rounded-3xl pointer-events-none"
+                        className="absolute inset-0 rounded-3xl pointer-events-none opacity-0"
                         style={{
                           background: 'linear-gradient(45deg, rgba(229, 207, 176, 0.15), rgba(245, 220, 180, 0.1), rgba(212, 196, 168, 0.15), rgba(229, 207, 176, 0.1))'
                         }}
@@ -239,33 +335,20 @@ const Solution: React.FC = () => {
                       
                       {/* Warm Border Glow */}
                       <div 
-                        className="absolute inset-0 rounded-3xl border transition-all duration-300 pointer-events-none"
-                        style={{
-                          borderColor: 'rgba(229, 207, 176, 0.3)'
-                        }}
-                      ></div>
-                      <div 
-                        className="absolute inset-0 rounded-3xl border opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none"
-                        style={{
-                          borderColor: 'rgba(229, 207, 176, 0.6)'
-                        }}
-                      ></div>
+                        className="absolute inset-0 rounded-3xl border pointer-events-none border-[rgba(229,207,176,0.3)]"
+                      />
                     </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
 
-              {/* Custom Navigation Buttons */}
-              <div className="swiper-button-prev-custom"></div>
-              <div className="swiper-button-next-custom"></div>
-              
               {/* Custom Pagination */}
-              <div className="swiper-pagination-custom swiper-pagination"></div>
+              <div className="swiper-pagination-custom swiper-pagination mt-4"></div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -1,12 +1,28 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { ProjectIcons } from '../utils/icons';
+import { redirectToExternalForm } from '../utils/externalForm';
 
-interface HeroProps {
-  onOpenForm: () => void;
-}
+const Hero: React.FC = () => {
+  // Framer Motion variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  };
 
-const Hero: React.FC<HeroProps> = ({ onOpenForm }) => {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-cream via-cream/95 to-taupe/10 flex items-center justify-center pt-24 pb-16">
+    <motion.section 
+      className="relative min-h-screen bg-gradient-to-br from-cream via-cream/95 to-taupe/10 flex items-center justify-center pt-24 pb-16"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{
@@ -22,73 +38,228 @@ const Hero: React.FC<HeroProps> = ({ onOpenForm }) => {
         <div className="max-w-4xl mx-auto space-y-12">
           
           {/* Main Heading */}
-          <div className="space-y-6">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-charcoal leading-[1.1] tracking-tight">
-              <span className="block font-extralight opacity-0 animate-fadeInUp animation-delay-200">
+          <motion.div 
+            className="space-y-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: window.innerWidth < 768 ? 0.4 : 0.8, 
+              ease: "easeOut" 
+            }}
+          >
+            <motion.h1 
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-charcoal leading-[1.1] tracking-tight"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ staggerChildren: 0.3, delayChildren: 0.2 }}
+            >
+              <motion.span 
+                className="block font-extralight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: window.innerWidth < 768 ? 0.4 : 0.8, 
+                  delay: window.innerWidth < 768 ? 0.1 : 0.2 
+                }}
+              >
                 Sua clínica já encanta.
-              </span>
-              <span className="block font-medium text-terracotta opacity-0 animate-fadeInUp animation-delay-400">
+              </motion.span>
+              <motion.span 
+                className="block font-medium text-terracotta"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: window.innerWidth < 768 ? 0.4 : 0.8, 
+                  delay: window.innerWidth < 768 ? 0.2 : 0.4 
+                }}
+              >
                 Agora é hora de crescer com inteligência.
-              </span>
-            </h1>
-          </div>
+              </motion.span>
+            </motion.h1>
+          </motion.div>
           
           {/* Subheading */}
-          <div className="max-w-3xl mx-auto">
-            <p className="text-lg sm:text-xl md:text-2xl text-charcoal/80 leading-relaxed font-light tracking-wide opacity-0 animate-fadeInUp animation-delay-600">
+          <motion.div 
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: window.innerWidth < 768 ? 0.4 : 0.8, 
+              delay: window.innerWidth < 768 ? 0.3 : 0.6 
+            }}
+          >
+            <motion.p 
+              className="text-lg sm:text-xl md:text-2xl text-charcoal/80 leading-relaxed font-light tracking-wide"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
               CRM, automações e inteligência digital para clínicas que querem crescer com{' '}
-              <span className="text-terracotta font-medium">leveza</span> e{' '}
-              <span className="text-gold font-medium">clareza</span>.
-            </p>
-          </div>
+              <motion.span 
+                className="text-terracotta font-medium"
+                whileHover={{ 
+                  scale: 1.1,
+                  transition: { duration: 0.3, ease: "easeInOut" }
+                }}
+              >
+                leveza
+              </motion.span> e{' '}
+              <motion.span 
+                className="text-gold font-medium"
+                whileHover={{ 
+                  scale: 1.1,
+                  transition: { duration: 0.3, ease: "easeInOut" }
+                }}
+              >
+                clareza
+              </motion.span>.
+            </motion.p>
+          </motion.div>
           
           {/* CTA Section */}
-          <div className="space-y-8 opacity-0 animate-fadeInUp animation-delay-800">
+          <motion.div 
+            className="space-y-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: window.innerWidth < 768 ? 0.4 : 0.8, 
+              delay: window.innerWidth < 768 ? 0.4 : 0.8 
+            }}
+          >
             {/* Main CTA Button */}
-            <div className="flex justify-center">
-              <button 
-                onClick={onOpenForm}
-                className="group relative bg-gradient-to-r from-terracotta to-gold text-cream px-8 sm:px-10 py-4 sm:py-5 rounded-full text-lg sm:text-xl font-medium shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-terracotta/20"
+            <motion.div
+              className="flex justify-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ 
+                duration: window.innerWidth < 768 ? 0.4 : 0.8, 
+                delay: window.innerWidth < 768 ? 0.5 : 1.0 
+              }}
+            >
+              <motion.button 
+                onClick={redirectToExternalForm}
+                className="group relative bg-gradient-to-r from-terracotta to-gold text-cream px-8 sm:px-10 py-4 sm:py-5 rounded-full text-lg sm:text-xl font-medium shadow-lg focus:outline-none focus:ring-4 focus:ring-terracotta/20"
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.3, ease: "easeInOut" }
+                }}
+                whileTap={{ 
+                  scale: 0.95,
+                  transition: { duration: 0.1, ease: "easeInOut" }
+                }}
               >
-                <span className="flex items-center gap-3">
-                Quero entender como estruturar minha clínica
-                  <svg 
-                    className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
+                <motion.span 
+                  className="flex items-center gap-3"
+                  whileHover={{ 
+                    x: 5,
+                    transition: { duration: 0.3, ease: "easeInOut" }
+                  }}
+                >
+                  Quero entender como estruturar minha clínica
+                  <motion.div
+                    whileHover={{ 
+                      x: 5,
+                      transition: { duration: 0.3, ease: "easeInOut" }
+                    }}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                    <ProjectIcons.HeroArrow />
+                  </motion.div>
+                </motion.span>
+              </motion.button>
+            </motion.div>
             
             {/* Authority Seal */}
-            <div className="flex justify-center">
-              <div className="inline-flex items-center gap-2 bg-white/60 backdrop-blur-sm border border-charcoal/10 rounded-full px-4 py-2 shadow-sm">
-                <div className="flex -space-x-1">
+            <motion.div 
+              className="flex justify-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: window.innerWidth < 768 ? 0.4 : 0.8, 
+                delay: window.innerWidth < 768 ? 0.6 : 1.2 
+              }}
+            >
+              <motion.div 
+                className="inline-flex items-center gap-2 bg-white/60 backdrop-blur-sm border border-charcoal/10 rounded-full px-4 py-2 shadow-sm"
+                whileHover={{ 
+                  scale: 1.05,
+                  backgroundColor: "rgba(255, 255, 255, 0.8)",
+                  transition: { duration: 0.3, ease: "easeInOut" }
+                }}
+              >
+                <motion.div 
+                  className="flex -space-x-1"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ 
+                    duration: window.innerWidth < 768 ? 0.4 : 0.8, 
+                    delay: window.innerWidth < 768 ? 0.7 : 1.2 
+                  }}
+                >
                   {[...Array(4)].map((_, i) => (
-                    <div 
+                    <motion.div 
                       key={i}
-                      className="w-6 h-6 bg-gradient-to-br from-gold to-terracotta rounded-full border-2 border-white shadow-sm"
-                    />
+                      className="w-6 h-6 bg-gradient-to-br from-gold to-terracotta rounded-full border-2 border-white shadow-sm flex items-center justify-center"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ 
+                        duration: window.innerWidth < 768 ? 0.4 : 0.6, 
+                        delay: window.innerWidth < 768 ? 0.8 + (i * 0.05) : 1.4 + (i * 0.1),
+                        ease: "easeOut"
+                      }}
+                      whileHover={{ 
+                        scale: 1.2,
+                        transition: { duration: 0.2, ease: "easeInOut" }
+                      }}
+                    >
+                      <ProjectIcons.HeroUsers />
+                    </motion.div>
                   ))}
-                </div>
-                <span className="text-sm font-medium text-charcoal/70">
+                </motion.div>
+                <motion.span 
+                  className="text-sm font-medium text-charcoal/70"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ 
+                    duration: window.innerWidth < 768 ? 0.4 : 0.8, 
+                    delay: window.innerWidth < 768 ? 0.9 : 1.6 
+                  }}
+                >
                   +12 clínicas já estruturadas com a Eucalyptus
-                </span>
-              </div>
-            </div>
-          </div>
+                </motion.span>
+              </motion.div>
+            </motion.div>
+          </motion.div>
           
         </div>
       </div>
       
       {/* Decorative elements */}
-      <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-gold/10 to-terracotta/10 rounded-full blur-3xl opacity-60" />
-      <div className="absolute bottom-20 left-10 w-24 h-24 bg-gradient-to-br from-terracotta/10 to-gold/10 rounded-full blur-2xl opacity-40" />
-    </section>
+      <motion.div 
+        className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-gold/10 to-terracotta/10 rounded-full blur-3xl opacity-60"
+        animate={{ 
+          scale: [1, 1.1, 1],
+          opacity: [0.6, 0.8, 0.6]
+        }}
+        transition={{ 
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div 
+        className="absolute bottom-20 left-10 w-24 h-24 bg-gradient-to-br from-terracotta/10 to-gold/10 rounded-full blur-2xl opacity-40"
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.4, 0.6, 0.4]
+        }}
+        transition={{ 
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+      />
+    </motion.section>
   );
 };
 
