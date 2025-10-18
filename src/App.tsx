@@ -4,6 +4,7 @@ import PainSection from './components/PainSection';
 import Solution from './components/Solution';
 import Benefits from './components/Benefits';
 import Authority from './components/Authority';
+import ROICalculator from './components/ROICalculator';
 import CTA from './components/CTA';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -17,6 +18,7 @@ const App: React.FC = () => {
       <Solution />
       <Benefits />
       <Authority />
+      <ROICalculator />
       <CTA />
       <Footer />
     </div>

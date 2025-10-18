@@ -16,7 +16,9 @@ import {
   TrendingUp,
   Clock,
   Heart,
-  Sparkles
+  Sparkles,
+  Calculator,
+  DollarSign
 } from 'lucide-react';
 
 // Sistema de ícones padronizado para o projeto Eucalyptus
@@ -45,6 +47,10 @@ export const Icons = {
   TrendingUp, // Crescimento
   Clock,      // Tempo
   Sparkles,   // Premium
+  
+  // Calculadora
+  Calculator,  // Calculadora
+  DollarSign,  // Valor monetário
 };
 
 // Componente de ícone com animações padrão
