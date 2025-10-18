@@ -22,6 +22,7 @@ const Header: React.FC = () => {
           <ul className="hidden lg:flex items-center space-x-10 text-lg">
             <li><a href="#solution" className="text-charcoal font-medium">Solução</a></li>
             <li><a href="#benefits" className="text-charcoal font-medium">Benefícios</a></li>
+            <li><a href="#calculadora-roi" className="text-charcoal font-medium">Calculadora ROI</a></li>
             <li><a href="#about" className="text-charcoal font-medium">Sobre</a></li>
           </ul>
           
@@ -49,6 +50,7 @@ const Header: React.FC = () => {
             <ul className="flex flex-col space-y-6 p-8">
               <li><a href="#solution" onClick={() => setIsMenuOpen(false)} className="text-charcoal text-lg font-medium">Solução</a></li>
               <li><a href="#benefits" onClick={() => setIsMenuOpen(false)} className="text-charcoal text-lg font-medium">Benefícios</a></li>
+              <li><a href="#calculadora-roi" onClick={() => setIsMenuOpen(false)} className="text-charcoal text-lg font-medium">Calculadora ROI</a></li>
               <li><a href="#about" onClick={() => setIsMenuOpen(false)} className="text-charcoal text-lg font-medium">Sobre</a></li>
               <li>
                 <button 
