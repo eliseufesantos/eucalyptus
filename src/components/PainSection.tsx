@@ -36,7 +36,7 @@ const PainSection: React.FC = () => {
 
   return (
     <section
-      id="pain-section"
+      id="dores"
       className="py-20 lg:py-24 bg-gradient-to-b from-charcoal via-charcoal/98 to-charcoal relative overflow-hidden"
     >
       {/* Ambient glow */}

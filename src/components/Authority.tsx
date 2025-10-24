@@ -8,7 +8,7 @@ const Authority: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      id="authority"
+      id="beta"
       className="relative py-24 lg:py-32 bg-gradient-to-b from-charcoal via-taupe/20 to-charcoal overflow-hidden"
     >
       {/* Ambient glow */}

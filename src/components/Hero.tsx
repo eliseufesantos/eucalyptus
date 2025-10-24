@@ -7,6 +7,7 @@ const Hero: React.FC = () => {
 
   return (
     <section
+      id="hero"
       ref={heroRef}
       className="relative min-h-screen bg-gradient-to-b from-charcoal via-charcoal/95 to-taupe/20 flex items-center justify-center pt-32 pb-20 overflow-hidden"
     >

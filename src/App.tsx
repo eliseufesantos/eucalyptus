@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import Hero from './components/Hero';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import BottomNav from './components/BottomNav';
 
 // Lazy load componentes pesados para melhor performance
 const ROICalculator = lazy(() => import('./components/ROICalculator'));
@@ -38,6 +39,7 @@ const App: React.FC = () => {
         <CTA />
       </Suspense>
       <Footer />
+      <BottomNav />
     </div>
   );
 };

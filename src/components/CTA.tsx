@@ -54,6 +54,7 @@ const CTA: React.FC = () => {
 
   return (
     <section
+      id="cta"
       ref={sectionRef}
       className="py-24 lg:py-32 bg-gradient-to-br from-cream via-cream/95 to-taupe/10 relative overflow-hidden"
     >
