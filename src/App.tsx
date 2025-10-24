@@ -2,7 +2,6 @@ import React from 'react';
 import Hero from './components/Hero';
 import PainSection from './components/PainSection';
 import Solution from './components/Solution';
-import Benefits from './components/Benefits';
 import Authority from './components/Authority';
 import ROICalculator from './components/ROICalculator';
 import CTA from './components/CTA';
@@ -14,11 +13,10 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-cream">
       <Header />
       <Hero />
+      <ROICalculator />
       <PainSection />
       <Solution />
-      <Benefits />
       <Authority />
-      <ROICalculator />
       <CTA />
       <Footer />
     </div>
