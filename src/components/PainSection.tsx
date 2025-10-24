@@ -2,135 +2,107 @@ import React from 'react';
 import { useScrollAnimation, useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
 
 interface Dor {
-  icone: string;
-  titulo: string;
-  problema: string;
   numero: string;
+  titulo: string;
   solucao: string;
 }
 
 const PainSection: React.FC = () => {
   const sectionRef = useScrollAnimation(0.1, 'animate-on-scroll');
-  const cardsRefs = useScrollAnimationMultiple(4, 0.1, 150);
+  const itemsRefs = useScrollAnimationMultiple(4, 0.1, 150);
 
   const dores: Dor[] = [
     {
-      icone: '⏱️',
-      titulo: 'Atendimento Lento Perdendo Leads',
-      problema: '40min-1h para responder WhatsApp. Ninguém atende à noite/fins de semana.',
-      numero: '30% dos leads morrem esperando',
+      numero: '30%',
+      titulo: 'Atendimento lento perdendo leads',
       solucao: 'IA responde em segundos, 24/7',
     },
     {
-      icone: '💔',
-      titulo: 'Profissionais Que Não Sabem Vender',
-      problema: 'São técnicos excelentes, não vendedores. Cada um atende de um jeito.',
-      numero: 'Conversão de 3-4 a cada 10 consultas',
-      solucao: 'Treinamento SpinSell + análise de IA',
+      numero: '3/10',
+      titulo: 'Conversão baixa por falta de método',
+      solucao: 'Treinamento SpinSell + análise IA',
     },
     {
-      icone: '📱',
-      titulo: 'Zero Follow-up de Resgate',
-      problema: 'Lead não fecha → morre ali. "Vou pensar", "sem grana agora".',
-      numero: 'R$ 20-50k/mês na mesa',
-      solucao: 'Follow-up automático personalizado',
+      numero: 'R$ 40k+',
+      titulo: 'Sem follow-up estruturado',
+      solucao: 'Automação personalizada de resgate',
     },
     {
-      icone: '💸',
-      titulo: 'Retorno Baixo de Pacientes',
-      problema: 'Ninguém lembra paciente de voltar. Botox dura 4-6 meses.',
-      numero: '28% retornam (ideal: 60%+)',
-      solucao: 'Lembretes automáticos inteligentes',
+      numero: '28%',
+      titulo: 'Retorno de pacientes muito baixo',
+      solucao: 'Lembretes inteligentes',
     },
   ];
 
   return (
     <section
       id="pain-section"
-      className="py-24 lg:py-32 bg-gradient-to-br from-charcoal via-taupe to-cream relative overflow-hidden"
+      className="py-20 lg:py-24 bg-gradient-to-b from-charcoal via-charcoal/98 to-charcoal relative overflow-hidden"
     >
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, #edd08c 1px, transparent 1px),
-                             radial-gradient(circle at 75% 75%, #b87353 1px, transparent 1px)`,
-            backgroundSize: '80px 80px',
-            backgroundPosition: '0 0, 40px 40px',
-          }}
-        />
-      </div>
+      {/* Ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-terracotta/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
+
           {/* Title */}
           <div ref={sectionRef} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-cream mb-6">
-              Por Que Sua Clínica Está{' '}
-              <span className="text-gold">Perdendo Dinheiro</span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-cream mb-4 leading-tight">
+              Por Que Você Está
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-terracotta via-gold to-terracotta">
+                Perdendo Dinheiro
+              </span>
             </h2>
-            <p className="text-xl text-cream/90 leading-relaxed max-w-3xl mx-auto">
-              Dores silenciosas que custam R$ 40k+/mês
-            </p>
           </div>
 
-          {/* Grid 2×2 de Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {dores.map((dor, index) => (
-              <div
-                key={index}
-                ref={(el) => {
-                  if (el) cardsRefs.current[index] = el;
-                }}
-                className="glass-dark rounded-2xl p-8 shadow-premium card-hover opacity-0"
-              >
-                {/* Ícone */}
-                <div className="text-5xl mb-4">{dor.icone}</div>
+          {/* Timeline vertical - Layout criativo */}
+          <div className="relative max-w-3xl mx-auto">
+            {/* Linha conectora */}
+            <div className="absolute left-12 top-0 bottom-0 w-px bg-gradient-to-b from-gold/30 via-terracotta/30 to-gold/30" />
 
-                {/* Título */}
-                <h3 className="text-2xl font-bold text-gold mb-4 leading-tight">
-                  {dor.titulo}
-                </h3>
+            {/* Dores */}
+            <div className="space-y-12">
+              {dores.map((dor, index) => (
+                <div
+                  key={index}
+                  ref={(el) => {
+                    if (el) itemsRefs.current[index] = el;
+                  }}
+                  className="relative flex items-start gap-8 opacity-0"
+                >
+                  {/* Número grande como protagonista */}
+                  <div className="flex-shrink-0 w-24 text-right">
+                    <div className="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-terracotta to-gold">
+                      {dor.numero}
+                    </div>
+                  </div>
 
-                {/* Problema */}
-                <p className="text-cream/80 text-base leading-relaxed mb-4">
-                  {dor.problema}
-                </p>
+                  {/* Dot na linha */}
+                  <div className="absolute left-12 top-6 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-br from-terracotta to-gold shadow-lg" />
 
-                {/* Número chocante - Destaque */}
-                <div className="bg-terracotta/20 border-l-4 border-terracotta rounded-lg p-4 mb-4">
-                  <p className="text-terracotta font-bold text-lg">{dor.numero}</p>
+                  {/* Conteúdo */}
+                  <div className="flex-1 pt-3">
+                    <h3 className="text-xl lg:text-2xl font-semibold text-cream mb-3 leading-tight">
+                      {dor.titulo}
+                    </h3>
+                    <div className="flex items-start gap-2 text-cream/60">
+                      <svg className="w-4 h-4 text-gold mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-base">{dor.solucao}</span>
+                    </div>
+                  </div>
                 </div>
-
-                {/* Solução */}
-                <div className="flex items-start gap-2">
-                  <svg
-                    className="w-5 h-5 text-gold mt-0.5 flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <p className="text-cream font-medium text-base">{dor.solucao}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          {/* CTA de transição */}
-          <div className="text-center mt-16 animate-on-scroll delay-400">
-            <div className="inline-block bg-gradient-to-r from-charcoal/80 to-taupe/80 backdrop-blur-md border border-gold/30 rounded-2xl p-8 shadow-xl max-w-2xl">
-              <p className="text-2xl font-bold text-cream mb-4">
-                E se você pudesse{' '}
-                <span className="text-gold">resolver tudo isso</span>?
-              </p>
-              <p className="text-cream/80 text-lg">
-                Sistema completo em 6 semanas. Sem mensalidades.
+          {/* CTA de transição - Compacto */}
+          <div className="text-center mt-20 animate-on-scroll delay-400">
+            <div className="inline-block border border-gold/20 backdrop-blur-sm bg-charcoal/50 rounded-2xl px-8 py-6 max-w-2xl">
+              <p className="text-xl lg:text-2xl font-semibold text-cream">
+                E se você pudesse <span className="text-gold">resolver tudo isso</span>?
               </p>
             </div>
           </div>
