@@ -1,265 +1,118 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ProjectIcons } from '../utils/icons';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { redirectToExternalForm } from '../utils/externalForm';
 
 const Hero: React.FC = () => {
-  // Framer Motion variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
-  };
+  const heroRef = useScrollAnimation(0.1, 'animate-fade-in');
 
   return (
-    <motion.section 
-      className="relative min-h-screen bg-gradient-to-br from-cream via-cream/95 to-taupe/10 flex items-center justify-center pt-24 pb-16"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
+    <section
+      id="hero"
+      ref={heroRef}
+      className="relative min-h-screen bg-gradient-to-b from-charcoal via-charcoal/95 to-taupe/20 flex items-center justify-center pt-32 pb-20 overflow-hidden"
     >
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, theme('colors.gold') 1px, transparent 1px),
-                           radial-gradient(circle at 75% 75%, theme('colors.terracotta') 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-          backgroundPosition: '0 0, 30px 30px'
-        }} />
+      {/* Subtle light rays */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-gold/30 via-gold/10 to-transparent opacity-40" />
+        <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-terracotta/30 via-terracotta/10 to-transparent opacity-30" />
+        <div className="absolute top-0 left-2/3 w-px h-full bg-gradient-to-b from-gold/20 via-gold/5 to-transparent opacity-20" />
       </div>
-      
+
+      {/* Ambient glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
+
       {/* Content */}
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-        <div className="max-w-4xl mx-auto space-y-12">
-          
-          {/* Main Heading */}
-          <motion.div 
-            className="space-y-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: window.innerWidth < 768 ? 0.4 : 0.8, 
-              ease: "easeOut" 
-            }}
-          >
-            <motion.h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-charcoal leading-[1.1] tracking-tight"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ staggerChildren: 0.3, delayChildren: 0.2 }}
+      <div className="relative container mx-auto px-6 lg:px-12 z-10">
+        <div className="max-w-6xl mx-auto">
+
+          {/* Badge - Minimalista */}
+          <div className="flex justify-center mb-12 animate-on-scroll">
+            <div className="inline-flex items-center gap-3 border border-gold/30 text-gold px-6 py-2 rounded-full backdrop-blur-sm bg-charcoal/50">
+              <div className="w-1.5 h-1.5 bg-gold rounded-full animate-glow-soft" />
+              <span className="text-sm tracking-wider uppercase font-medium">Método RADIX™</span>
+              <span className="text-xs text-gold/60">•</span>
+              <span className="text-sm tracking-wider uppercase font-medium">3 Vagas</span>
+            </div>
+          </div>
+
+          {/* Headline - Tipografia como protagonista */}
+          <div className="text-center space-y-8 mb-16 animate-on-scroll delay-100">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-cream leading-[0.95] tracking-tight">
+              Do improviso
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-terracotta to-gold">
+                à máquina de crescimento
+              </span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-cream/70 leading-relaxed max-w-3xl mx-auto font-light">
+              Sistema de automação inteligente para clínicas de estética premium
+              <br />
+              que sabem que estão perdendo faturamento
+            </p>
+          </div>
+
+          {/* Stats - Integrados e elegantes */}
+          <div className="flex flex-wrap justify-center items-center gap-12 mb-16 animate-on-scroll delay-200">
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-terracotta mb-2">30%</div>
+              <div className="text-sm text-cream/60 uppercase tracking-wider">Leads desperdiçados</div>
+            </div>
+
+            <div className="hidden md:block w-px h-16 bg-gold/20" />
+
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-gold mb-2">R$ 40k+</div>
+              <div className="text-sm text-cream/60 uppercase tracking-wider">Perdidos mensalmente</div>
+            </div>
+
+            <div className="hidden md:block w-px h-16 bg-gold/20" />
+
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-terracotta mb-2">15 dias</div>
+              <div className="text-sm text-cream/60 uppercase tracking-wider">Payback médio</div>
+            </div>
+          </div>
+
+          {/* CTA - Minimalista e elegante */}
+          <div className="text-center space-y-6 animate-on-scroll delay-300">
+            <button
+              onClick={redirectToExternalForm}
+              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-terracotta to-gold text-cream px-12 py-5 rounded-full text-lg font-semibold shadow-2xl hover-lift transition-smooth focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-charcoal"
             >
-              <motion.span 
-                className="block font-extralight"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: window.innerWidth < 768 ? 0.4 : 0.8, 
-                  delay: window.innerWidth < 768 ? 0.1 : 0.2 
-                }}
-              >
-                Sua clínica já encanta.
-              </motion.span>
-              <motion.span 
-                className="block font-medium text-terracotta"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: window.innerWidth < 768 ? 0.4 : 0.8, 
-                  delay: window.innerWidth < 768 ? 0.2 : 0.4 
-                }}
-              >
-                Agora é hora de crescer com inteligência.
-              </motion.span>
-            </motion.h1>
-          </motion.div>
-          
-          {/* Subheading */}
-          <motion.div 
-            className="max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: window.innerWidth < 768 ? 0.4 : 0.8, 
-              delay: window.innerWidth < 768 ? 0.3 : 0.6 
-            }}
-          >
-            <motion.p 
-              className="text-lg sm:text-xl md:text-2xl text-charcoal/80 leading-relaxed font-light tracking-wide"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              CRM, automações e inteligência digital para clínicas que querem crescer com{' '}
-              <motion.span 
-                className="text-terracotta font-medium"
-                whileHover={{ 
-                  scale: 1.1,
-                  transition: { duration: 0.3, ease: "easeInOut" }
-                }}
-              >
-                leveza
-              </motion.span> e{' '}
-              <motion.span 
-                className="text-gold font-medium"
-                whileHover={{ 
-                  scale: 1.1,
-                  transition: { duration: 0.3, ease: "easeInOut" }
-                }}
-              >
-                clareza
-              </motion.span>.
-            </motion.p>
-          </motion.div>
-          
-          {/* CTA Section */}
-          <motion.div 
-            className="space-y-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: window.innerWidth < 768 ? 0.4 : 0.8, 
-              delay: window.innerWidth < 768 ? 0.4 : 0.8 
-            }}
-          >
-            {/* Main CTA Button */}
-            <motion.div
-              className="flex justify-center"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ 
-                duration: window.innerWidth < 768 ? 0.4 : 0.8, 
-                delay: window.innerWidth < 768 ? 0.5 : 1.0 
-              }}
-            >
-              <motion.button 
-                onClick={redirectToExternalForm}
-                className="group relative bg-gradient-to-r from-terracotta to-gold text-cream px-8 sm:px-10 py-4 sm:py-5 rounded-full text-lg sm:text-xl font-medium shadow-lg focus:outline-none focus:ring-4 focus:ring-terracotta/20"
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.3, ease: "easeInOut" }
-                }}
-                whileTap={{ 
-                  scale: 0.95,
-                  transition: { duration: 0.1, ease: "easeInOut" }
-                }}
-              >
-                <motion.span 
-                  className="flex items-center gap-3"
-                  whileHover={{ 
-                    x: 5,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  Quero entender como estruturar minha clínica
-                  <motion.div
-                    whileHover={{ 
-                      x: 5,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <ProjectIcons.HeroArrow />
-                  </motion.div>
-                </motion.span>
-              </motion.button>
-            </motion.div>
-            
-            {/* Authority Seal */}
-            <motion.div 
-              className="flex justify-center"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: window.innerWidth < 768 ? 0.4 : 0.8, 
-                delay: window.innerWidth < 768 ? 0.6 : 1.2 
-              }}
-            >
-              <motion.div 
-                className="inline-flex items-center gap-2 bg-white/60 backdrop-blur-sm border border-charcoal/10 rounded-full px-4 py-2 shadow-sm"
-                whileHover={{ 
-                  scale: 1.05,
-                  backgroundColor: "rgba(255, 255, 255, 0.8)",
-                  transition: { duration: 0.3, ease: "easeInOut" }
-                }}
-              >
-                <motion.div 
-                  className="flex -space-x-1"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ 
-                    duration: window.innerWidth < 768 ? 0.4 : 0.8, 
-                    delay: window.innerWidth < 768 ? 0.7 : 1.2 
-                  }}
-                >
-                  {[...Array(4)].map((_, i) => (
-                    <motion.div 
-                      key={i}
-                      className="w-6 h-6 bg-gradient-to-br from-gold to-terracotta rounded-full border-2 border-white shadow-sm flex items-center justify-center"
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ 
-                        duration: window.innerWidth < 768 ? 0.4 : 0.6, 
-                        delay: window.innerWidth < 768 ? 0.8 + (i * 0.05) : 1.4 + (i * 0.1),
-                        ease: "easeOut"
-                      }}
-                      whileHover={{ 
-                        scale: 1.2,
-                        transition: { duration: 0.2, ease: "easeInOut" }
-                      }}
-                    >
-                      <ProjectIcons.HeroUsers />
-                    </motion.div>
-                  ))}
-                </motion.div>
-                <motion.span 
-                  className="text-sm font-medium text-charcoal/70"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ 
-                    duration: window.innerWidth < 768 ? 0.4 : 0.8, 
-                    delay: window.innerWidth < 768 ? 0.9 : 1.6 
-                  }}
-                >
-                  +12 clínicas já estruturadas com a Eucalyptus
-                </motion.span>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-          
+              Descubra Quanto Você Está Perdendo
+              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
+
+            <p className="text-sm text-cream/50">
+              Diagnóstico gratuito • 45 minutos • Sem compromisso
+            </p>
+          </div>
+
+          {/* Trust - Minimalista */}
+          <div className="flex flex-wrap justify-center items-center gap-8 mt-16 text-sm text-cream/40 animate-on-scroll delay-400">
+            <div className="flex items-center gap-2">
+              <div className="w-1 h-1 bg-gold rounded-full" />
+              <span>Usado pela própria Eucalyptus</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1 h-1 bg-gold rounded-full" />
+              <span>Sem mensalidades</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1 h-1 bg-gold rounded-full" />
+              <span>Resultados em 45 dias</span>
+            </div>
+          </div>
+
         </div>
       </div>
-      
-      {/* Decorative elements */}
-      <motion.div 
-        className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-gold/10 to-terracotta/10 rounded-full blur-3xl opacity-60"
-        animate={{ 
-          scale: [1, 1.1, 1],
-          opacity: [0.6, 0.8, 0.6]
-        }}
-        transition={{ 
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div 
-        className="absolute bottom-20 left-10 w-24 h-24 bg-gradient-to-br from-terracotta/10 to-gold/10 rounded-full blur-2xl opacity-40"
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.4, 0.6, 0.4]
-        }}
-        transition={{ 
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
-        }}
-      />
-    </motion.section>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cream to-transparent" />
+    </section>
   );
 };
 

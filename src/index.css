@@ -753,32 +753,147 @@ button {
   .mySwiper {
     overflow: visible !important;
   }
-  
+
   .mySwiper .swiper-wrapper {
     align-items: stretch !important;
   }
-  
+
   .mySwiper .swiper-slide {
     height: auto !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
   }
-  
+
   /* Hide navigation buttons on mobile */
   .swiper-button-prev-custom,
   .swiper-button-next-custom {
     display: none !important;
   }
-  
+
   /* Center pagination */
   .swiper-pagination-custom {
     margin-top: 1.5rem !important;
   }
-  
+
   /* Swiper container adjustments for mobile */
   .swiper-container {
     padding: 0 20px !important;
     max-width: 100% !important;
   }
+}
+
+/* ============================================
+   ANIMAÇÕES PARA SUBSTITUIR FRAMER MOTION
+   ============================================ */
+
+/* 1. Fade In Up - Animação principal de scroll */
+@keyframes fadeInUpNew {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  animation: fadeInUpNew 0.6s ease-out forwards;
+  opacity: 0; /* Começa invisível */
+}
+
+/* 2. Pulse para CTA - Apenas no botão principal */
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(184, 115, 83, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(184, 115, 83, 0);
+  }
+}
+
+.cta-pulse {
+  animation: ctaPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 3. Hover sutil para cards */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow:
+    0 12px 48px 0 rgba(229, 207, 176, 0.5),
+    0 4px 8px -2px rgba(229, 207, 176, 0.4);
+}
+
+/* 4. Fade In simples - Sem movimento */
+@keyframes fadeInOnly {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInOnly 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+/* 5. Scale In - Para badges e elementos pequenos */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+/* 6. Delays para stagger effect manual */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* 7. Transições suaves globais */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 8. Hover para links e botões */
+.hover-lift {
+  transition: transform 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* 9. Glow effect suave */
+@keyframes glowSoft {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-glow-soft {
+  animation: glowSoft 3s ease-in-out infinite;
 }

@@ -3,6 +3,20 @@ import { redirectToExternalForm } from '../utils/externalForm';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight - windowHeight;
+      const scrolled = window.scrollY;
+      const progress = (scrolled / documentHeight) * 100;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-cream/80 backdrop-blur-lg border-b border-charcoal/10">
@@ -65,6 +79,14 @@ const Header: React.FC = () => {
             </ul>
           </div>
         )}
+      </div>
+
+      {/* Scroll Progress Bar */}
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-charcoal/10">
+        <div
+          className="h-full bg-gradient-to-r from-terracotta via-gold to-terracotta transition-all duration-150 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
       </div>
     </header>
   );
